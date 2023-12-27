@@ -16,6 +16,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N7X-0D-JJ2">
+                                <rect key="frame" x="16" y="59" width="361" height="648"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="361" id="RQO-qb-llw" userLabel="width = 0"/>
+                                    <constraint firstAttribute="height" constant="648" id="XMw-bG-dUw" userLabel="height = 0"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Amz-gA-Rt0" userLabel="Top">
+                                <rect key="frame" x="70" y="103" width="258" height="18.666666666666671"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="258" id="tcr-Nw-Ry9" userLabel="width = 200"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" keyboardType="alphabet"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eVE-92-c1u" userLabel="Bottom">
+                                <rect key="frame" x="70" y="685.33333333333337" width="258" height="18.666666666666629"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="258" id="2kG-ai-cPE" userLabel="width = 200"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" keyboardType="alphabet"/>
+                            </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ooQ-mm-tgC">
                                 <rect key="frame" x="0.0" y="774" width="393" height="44"/>
                                 <constraints>
@@ -32,34 +55,38 @@
                                             <action selector="pickAnImageFromCamera:" destination="BYZ-38-t0r" id="BUM-Kh-L13"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem title="Share" id="ZTt-z9-xje">
+                                        <connections>
+                                            <action selector="save" destination="BYZ-38-t0r" id="Hkv-jX-A59"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N7X-0D-JJ2">
-                                <rect key="frame" x="76" y="362" width="241" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="241" id="RQO-qb-llw" userLabel="width = 0"/>
-                                    <constraint firstAttribute="height" constant="128" id="XMw-bG-dUw" userLabel="height = 0"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Amz-gA-Rt0" firstAttribute="centerX" secondItem="N7X-0D-JJ2" secondAttribute="centerX" constant="2.5" id="2jW-2U-Kaj"/>
                             <constraint firstItem="ooQ-mm-tgC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2yH-rR-64A"/>
-                            <constraint firstItem="N7X-0D-JJ2" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="3fv-Dc-pIK"/>
-                            <constraint firstItem="ooQ-mm-tgC" firstAttribute="centerX" secondItem="N7X-0D-JJ2" secondAttribute="centerX" id="gWJ-mN-5C5"/>
+                            <constraint firstItem="Amz-gA-Rt0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="44" id="ByS-Du-vdO"/>
+                            <constraint firstItem="N7X-0D-JJ2" firstAttribute="centerX" secondItem="ooQ-mm-tgC" secondAttribute="centerX" id="G7B-Ad-4yl"/>
+                            <constraint firstItem="N7X-0D-JJ2" firstAttribute="bottom" secondItem="ooQ-mm-tgC" secondAttribute="bottom" constant="-111" id="S1k-8J-vCl"/>
+                            <constraint firstItem="ooQ-mm-tgC" firstAttribute="top" secondItem="eVE-92-c1u" secondAttribute="bottom" constant="70" id="b3y-0a-IDg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ooQ-mm-tgC" secondAttribute="bottom" id="iNY-k9-dIw"/>
                             <constraint firstItem="ooQ-mm-tgC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="nIH-z2-pFC"/>
+                            <constraint firstItem="eVE-92-c1u" firstAttribute="leading" secondItem="Amz-gA-Rt0" secondAttribute="leading" id="zfE-bQ-CDp"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomTextField" destination="eVE-92-c1u" id="m5s-DS-aQI"/>
                         <outlet property="pickerAlbum" destination="N7X-0D-JJ2" id="3mr-Tz-S0Z"/>
                         <outlet property="pickerCamera" destination="Ktd-Ln-oLy" id="LHb-Y7-W27"/>
+                        <outlet property="topTextField" destination="Amz-gA-Rt0" id="xgF-tS-cuu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131" y="-27"/>
+            <point key="canvasLocation" x="130.53435114503816" y="-27.464788732394368"/>
         </scene>
     </scenes>
     <resources>
