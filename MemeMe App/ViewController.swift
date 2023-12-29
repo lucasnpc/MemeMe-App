@@ -8,7 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate,
-                        UINavigationControllerDelegate, UITextFieldDelegate {
+                      UINavigationControllerDelegate, UITextFieldDelegate {    
 
     @IBOutlet weak var pickerAlbum: UIImageView!
     @IBOutlet weak var pickerCamera: UIBarButtonItem!
@@ -102,6 +102,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
         let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: pickerAlbum.image!, memedImage: generateMemedImage())
         
         let activityViewController = UIActivityViewController(activityItems: [meme], applicationActivities: nil)
+        
+        (UIApplication.shared.delegate as! AppDelegate).memes.append(meme)
         
         present(activityViewController, animated: true)
     }
