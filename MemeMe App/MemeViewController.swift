@@ -7,13 +7,14 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate,
+class MemeViewController: UIViewController, UIImagePickerControllerDelegate,
                       UINavigationControllerDelegate, UITextFieldDelegate {    
 
     @IBOutlet weak var pickerAlbum: UIImageView!
     @IBOutlet weak var pickerCamera: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
+    @IBOutlet weak var toolbar: UIToolbar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +22,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = true
         pickerCamera.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         subscribeToKeyboardNotifications()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
         unsubscribeFromKeyboardNotifications()
     }
     
@@ -101,16 +104,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBAction func save() {
         let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: pickerAlbum.image!, memedImage: generateMemedImage())
         
-        let activityViewController = UIActivityViewController(activityItems: [meme], applicationActivities: nil)
+        AppDelegate.memes.append(meme)
         
-        (UIApplication.shared.delegate as! AppDelegate).memes.append(meme)
+        let activityViewController = UIActivityViewController(activityItems: [meme.memedImage], applicationActivities: nil)
         
         present(activityViewController, animated: true)
     }
     
     func generateMemedImage() -> UIImage {
         // TODO: Hide toolbar and navbar
-        
+        toolbar.isHidden = true
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
@@ -118,6 +121,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
         UIGraphicsEndImageContext()
         
         // TODO: Show toolbar and navbar
+        toolbar.isHidden = false
         
         return memedImage
     }

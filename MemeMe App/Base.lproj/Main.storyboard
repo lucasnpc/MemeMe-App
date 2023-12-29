@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Meme View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MemeMe_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemeViewController" id="BYZ-38-t0r" customClass="MemeViewController" customModule="MemeMe_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -65,7 +65,7 @@
                             </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Amz-gA-Rt0" firstAttribute="centerX" secondItem="N7X-0D-JJ2" secondAttribute="centerX" constant="2.5" id="2jW-2U-Kaj"/>
                             <constraint firstItem="ooQ-mm-tgC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2yH-rR-64A"/>
@@ -82,6 +82,7 @@
                         <outlet property="bottomTextField" destination="eVE-92-c1u" id="m5s-DS-aQI"/>
                         <outlet property="pickerAlbum" destination="N7X-0D-JJ2" id="3mr-Tz-S0Z"/>
                         <outlet property="pickerCamera" destination="Ktd-Ln-oLy" id="LHb-Y7-W27"/>
+                        <outlet property="toolbar" destination="ooQ-mm-tgC" id="b4o-aT-AzU"/>
                         <outlet property="topTextField" destination="Amz-gA-Rt0" id="xgF-tS-cuu"/>
                     </connections>
                 </viewController>
@@ -137,7 +138,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l29-NA-1Yh">
-                                            <rect key="frame" x="-19" y="-51" width="186" height="194"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
@@ -227,7 +228,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="61c-6X-xez" firstAttribute="leading" secondItem="4NQ-Sp-OVX" secondAttribute="leading" id="GaE-J4-zfa"/>
-                                                <constraint firstItem="w8h-Jd-nll" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="61c-6X-xez" secondAttribute="trailing" symbolic="YES" id="UhT-cW-bAy"/>
+                                                <constraint firstItem="w8h-Jd-nll" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="61c-6X-xez" secondAttribute="trailing" constant="8" symbolic="YES" id="UhT-cW-bAy"/>
                                                 <constraint firstAttribute="bottom" secondItem="61c-6X-xez" secondAttribute="bottom" id="WiR-F6-E3n"/>
                                                 <constraint firstItem="61c-6X-xez" firstAttribute="top" secondItem="4NQ-Sp-OVX" secondAttribute="top" id="dKs-tP-mvj"/>
                                                 <constraint firstAttribute="trailing" secondItem="w8h-Jd-nll" secondAttribute="trailing" constant="214" id="ilF-ha-gLw"/>
@@ -236,11 +237,18 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="U10-6X-kKT" id="ejv-Gi-UJt"/>
+                                    <outlet property="delegate" destination="U10-6X-kKT" id="on2-lb-zAS"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="a8K-t8-t0x"/>
                     </view>
                     <navigationItem key="navigationItem" id="qZT-bo-ASS"/>
+                    <connections>
+                        <outlet property="tableView" destination="aAq-TE-leq" id="XlL-SK-pbx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iC1-4N-nSW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

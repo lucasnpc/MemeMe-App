@@ -10,18 +10,18 @@ import UIKit
 
 class MemeTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var memes: [Meme]! {
-        let object = UIApplication.shared.delegate
-        let appDelegate = object as! AppDelegate
-        return appDelegate.memes
+        return AppDelegate.memes
     }
+    
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Create a bar button item with a title
-        let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(titleAction))
+        let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editAction))
 
         // Create a bar button item with an image
-        let addMemeImageButton = UIBarButtonItem(title: "+", style: .plain, target: self, action: #selector(imageAction))
+        let addMemeImageButton = UIBarButtonItem(title: "+", style: .plain, target: self, action: #selector(addAction))
         let font = UIFont.systemFont(ofSize: 25.0)
         addMemeImageButton.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
 
@@ -30,11 +30,11 @@ class MemeTableViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("fuck table")
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return memes.count
+        return self.memes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -47,11 +47,12 @@ class MemeTableViewController: UIViewController, UITableViewDataSource, UITableV
         return cell
     }
     
-    @objc func titleAction() {
-        print("fuck title table ")
+    @objc func editAction() {
+        print("fuck title collection")
     }
     
-    @objc func imageAction() {
-        print("fuck action table")
+    @objc func addAction() {
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "MemeViewController") as! MemeViewController
+        self.navigationController!.pushViewController(viewController, animated: true)
     }
 }

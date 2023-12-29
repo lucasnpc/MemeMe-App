@@ -10,18 +10,16 @@ import UIKit
 
 class MemeCollectionViewController: UICollectionViewController {
     var memes: [Meme]! {
-        let object = UIApplication.shared.delegate
-        let appDelegate = object as! AppDelegate
-        return appDelegate.memes
+        return AppDelegate.memes
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Create a bar button item with a title
-        let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(titleAction))
+        let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editAction))
 
         // Create a bar button item with an image
-        let addMemeImageButton = UIBarButtonItem(title: "+", style: .plain, target: self, action: #selector(imageAction))
+        let addMemeImageButton = UIBarButtonItem(title: "+", style: .plain, target: self, action: #selector(addAction))
         let font = UIFont.systemFont(ofSize: 25.0)
         addMemeImageButton.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
 
@@ -30,6 +28,10 @@ class MemeCollectionViewController: UICollectionViewController {
     }
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.memes.count
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        collectionView.reloadData()
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -42,12 +44,13 @@ class MemeCollectionViewController: UICollectionViewController {
         return cell
     }
     
-    @objc func titleAction() {
+    @objc func editAction() {
         print("fuck title collection")
     }
     
-    @objc func imageAction() {
-        print("fuck action collection")
+    @objc func addAction() {
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "MemeViewController") as! MemeViewController
+        self.navigationController!.pushViewController(viewController, animated: true)
     }
 }
 
