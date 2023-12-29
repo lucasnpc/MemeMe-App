@@ -99,8 +99,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="4mv-RB-fvM" kind="relationship" relationship="viewControllers" id="ZQU-r6-qsA"/>
-                        <segue destination="ida-4B-nrn" kind="relationship" relationship="viewControllers" id="uam-Eg-nJj"/>
+                        <segue destination="ida-4B-nrn" kind="relationship" relationship="viewControllers" id="zgn-1D-5gh"/>
+                        <segue destination="4mv-RB-fvM" kind="relationship" relationship="viewControllers" id="i43-ie-Taf"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cM7-Zx-KBY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -211,7 +211,7 @@
         <scene sceneID="iYe-vD-xeC">
             <objects>
                 <navigationController id="4mv-RB-fvM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="list.bullet" catalog="system" id="2Ik-zu-Nm1"/>
+                    <tabBarItem key="tabBarItem" title="" image="square.grid.3x3.fill" catalog="system" id="2Ik-zu-Nm1"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Q4n-s9-naH">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -228,7 +228,7 @@
         <scene sceneID="aeE-IC-SIg">
             <objects>
                 <navigationController id="ida-4B-nrn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="square.grid.3x3.fill" catalog="system" id="8Kn-CC-ni0"/>
+                    <tabBarItem key="tabBarItem" title="" image="list.bullet" catalog="system" id="8Kn-CC-ni0"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rRP-Ey-zdO">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
