@@ -25,7 +25,7 @@ class MemeTableViewController: UIViewController, UITableViewDataSource, UITableV
         let font = UIFont.systemFont(ofSize: 25.0)
         addMemeImageButton.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
 
-        navigationItem.leftBarButtonItem? = editButton
+        navigationItem.leftBarButtonItem = editButton
         navigationItem.rightBarButtonItem = addMemeImageButton
     }
     
