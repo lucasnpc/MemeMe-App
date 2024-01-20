@@ -45,7 +45,7 @@ class MemeCollectionViewController: UICollectionViewController {
     }
     
     @objc func editAction() {
-        print("fuck title collection")
+        print("edit collection")
     }
     
     @objc func addAction() {

@@ -38,17 +38,17 @@ class MemeTableViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MemeTableCell")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MemeTableCell", for: indexPath) as! MemeTableCell
         let meme = self.memes[(indexPath as NSIndexPath).row]
         
-        cell.imageView?.image = meme.memedImage
-        cell.textLabel?.text = meme.topText + "..." + meme.bottomText
+        cell.memedImage?.image = meme.memedImage
+        cell.memedText?.text = meme.topText + "..." + meme.bottomText
         
         return cell
     }
     
     @objc func editAction() {
-        print("fuck title collection")
+        print("edit table")
     }
     
     @objc func addAction() {
